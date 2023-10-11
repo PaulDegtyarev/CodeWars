@@ -101,7 +101,48 @@ SELECT MAX(age) AS age_max, MIN(age) AS age_min
 FROM people;
 -----------------------------------
 
+-----------------------------------
+8 kyu
+SQL Basics: Simple WHERE and ORDER BY
 
+SELECT * 
+FROM people
+WHERE age > 50
+ORDER BY age DESC;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+Easy SQL - Ordering
+
+SELECT * 
+FROM companies
+ORDER BY employees DESC;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+Remove exclamation marks
+
+SELECT s, REPLACE(s, '!', '') AS res
+FROM removeexclamationmarks;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+SQL Basics: Simple DISTINCT
+
+SELECT DISTINCT(age)
+FROM people;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+SQL Basics: Simple SUM
+
+SELECT SUM(age) AS age_sum
+FROM people;
+-----------------------------------
 
 
 
