@@ -144,7 +144,16 @@ SELECT SUM(age) AS age_sum
 FROM people;
 -----------------------------------
 
+-----------------------------------
+8 kyu
+Factorial Fun: Using PostgreSQL to Generate a Table of Factorials
 
+prepare generate_factorial(int) as
+-- Your SQL here
+
+SELECT n, factorial(n)::INT AS result 
+FROM generate_series(1,$1) AS n;
+-----------------------------------
 
 
 
