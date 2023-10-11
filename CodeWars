@@ -42,6 +42,67 @@ FROM decimals;
 -----------------------------------
 
 -----------------------------------
+8 kyu
+Third Angle of a Triangle
+
+SELECT a, b, 180-a-b AS res
+FROM otherangle;
+-----------------------------------
+
+-----------------------------------
+8 kyu 
+Easy SQL: Square Root and Log
+
+SELECT SQRT(number1) AS root, LOG(number2) AS log
+FROM decimals;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+Easy SQL: Rounding Decimals
+
+SELECT FLOOR(number1) AS number1, CEILING(number2) AS number2
+FROM decimals;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+Collect Tuition (SQL for Beginners #4)
+
+SELECT name, age, semester, mentor, tuition_received
+FROM students
+WHERE tuition_received = false;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+Register for the Party (SQL for Beginners #3)
+
+INSERT INTO participants(name, age, attending) VALUES('Paul', 21, true);
+
+SELECT *
+FROM participants;
+-----------------------------------
+
+-----------------------------------
+8 kyu
+On the Canadian Border (SQL for Beginners #2)
+
+SELECT *
+FROM travelers
+WHERE country != 'USA' AND country != 'Canada' AND country != 'Mexico';
+-----------------------------------
+
+-----------------------------------
+8 kyu
+SQL Basics: Simple MIN / MAX
+
+SELECT MAX(age) AS age_max, MIN(age) AS age_min
+FROM people;
+-----------------------------------
+
+
+
 
 
 
