@@ -1,0 +1,49 @@
+CodeWars
+
+-----------------------------------
+8 kyu                                                 
+Count Odd Numbers below n
+
+SELECT n, n/2 AS res
+FROM oddcount;
+-----------------------------------
+
+-----------------------------------
+8 kyu 
+Get Nth Even Number
+
+SELECT n, (-2 + n*2) AS res
+FROM ntheven;
+-----------------------------------
+
+-----------------------------------
+8 kyu 
+Function 2 - squaring an argument
+
+SELECT n, n*n AS res
+FROM square;
+-----------------------------------
+
+-----------------------------------
+8 kyu 
+Will you make it?
+
+SELECT distance_to_pump, mpg, fuel_left, CASE 
+WHEN mpg*fuel_left >= distance_to_pump THEN true ELSE false END AS res
+FROM zerofuel;
+-----------------------------------
+
+-----------------------------------
+8 kyu 
+SQL Basics: Mod
+
+SELECT number1 % number2 AS mod
+FROM decimals;
+-----------------------------------
+
+-----------------------------------
+
+
+
+
+
