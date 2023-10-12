@@ -155,6 +155,30 @@ SELECT n, factorial(n)::INT AS result
 FROM generate_series(1,$1) AS n;
 -----------------------------------
 
+-----------------------------------
+7 kyu
+Parameterized SQL: Section Access Control
 
+prepare find_sections (integer) as
+SELECT id, section_name
+FROM section_access
+WHERE ',' || user_access || ',' LIKE '%,' || $1::text || ',%' 
+ORDER BY id;
+-----------------------------------
 
+-----------------------------------
+7 kyu 
+Order Error Rate Over the Past Hour
+
+SELECT ROUND((SELECT COUNT(*) * 100.0 FROM  order_errors WHERE order_time + '60 minutes' > NOW()) / NULLIF((SELECT COUNT(*) FROM order_processing WHERE order_time + '60 minutes' > NOW()), 0), 2) AS error_percentage
+-----------------------------------
+
+-----------------------------------
+7 kyu
+Sorting Madness: part 4
+
+SELECT id, group_id, recipe, priority
+FROM recipe_priority
+ORDER BY group_id ASC, MAX(priority) OVER (PARTITION BY group_id, recipe) DESC, recipe ASC, priority DESC, id DESC;
+-----------------------------------
 
