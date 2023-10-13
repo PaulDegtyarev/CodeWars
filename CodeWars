@@ -203,4 +203,39 @@ HAVING EVERY(software_title != 'Title2') AND MAX(install_date) >= CURRENT_DATE -
 ORDER BY host;
 -----------------------------------
 
+-----------------------------------
+7 kyu
+Cats and shelves
+
+SELECT a, b, (b - a)%3 + (b - a)/3 AS res
+FROM jumps;
+-----------------------------------
+
+-----------------------------------
+7 kyu 
+Vowel Count
+
+SELECT str, LENGTH(TRANSLATE(str,'bcdfghjklmnpqrstwvxyz ','')) AS res 
+FROM getcount;
+-----------------------------------
+
+-----------------------------------
+7 kyu 
+
+
+
+-----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
