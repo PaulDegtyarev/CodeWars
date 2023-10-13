@@ -182,3 +182,25 @@ FROM recipe_priority
 ORDER BY group_id ASC, MAX(priority) OVER (PARTITION BY group_id, recipe) DESC, recipe ASC, priority DESC, id DESC;
 -----------------------------------
 
+-----------------------------------
+7 kyu
+Genre Analysis with PostgreSQL Arrays
+
+SELECT DISTINCT(UNNEST(genres)) AS genre, COUNT(title) AS count, ARRAY_AGG(title ORDER BY title) AS books
+FROM books
+GROUP BY genre
+ORDER BY count DESC, genre;
+-----------------------------------
+
+-----------------------------------
+7 kyu
+Hosts Missing Specific Software Title and Having Recent Installations
+
+SELECT host
+FROM host_software
+GROUP BY host
+HAVING EVERY(software_title != 'Title2') AND MAX(install_date) >= CURRENT_DATE - INTERVAL '1 year'
+ORDER BY host;
+-----------------------------------
+
+
