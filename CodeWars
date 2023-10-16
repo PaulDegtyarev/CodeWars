@@ -221,9 +221,13 @@ FROM getcount;
 
 -----------------------------------
 7 kyu 
+ASCII Patterns Using SQL: part 2
 
-
-
+prepare alternate_star_and_number(int) as
+SELECT CASE 
+WHEN i%2=0 THEN (i/2)::TEXT 
+ELSE REPEAT('*',i/2+1) END AS pattern
+FROM GENERATE_SERIES(1,$1) AS t(i);
 -----------------------------------
 
 
