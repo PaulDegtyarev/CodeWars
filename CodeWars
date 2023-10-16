@@ -230,15 +230,51 @@ ELSE REPEAT('*',i/2+1) END AS pattern
 FROM GENERATE_SERIES(1,$1) AS t(i);
 -----------------------------------
 
+-----------------------------------
+7 kyu
+ASCII Patterns Using SQL: part 1
 
+SELECT REPEAT('*', i) AS star_pattern
+FROM GENERATE_SERIES($1, 1, -1) AS t(i);
+-----------------------------------
 
+-----------------------------------
+7 kyu
+Disemvowel Trolls
 
+SELECT str, TRANSLATE(str, 'aeuioAEUIO', '') AS res
+FROM disemvowel;
+-----------------------------------
 
+-----------------------------------
+7 kyu
+Top-Scoring Students for Each Subject
 
+SELECT DISTINCT ON (subject_id) ARRAY_AGG(student_name ORDER BY student_id ASC) AS student_names, su.subject_name, m.mark_rate
+FROM marks AS m JOIN students AS s USING(student_id)
+JOIN subjects AS su USING(subject_id)
+GROUP BY m.subject_id, m.mark_rate, su.subject_name
+ORDER BY m.subject_id ASC, m.mark_rate DESC;
+-----------------------------------
 
+-----------------------------------
+7 kyu
+Top-Scoring Students Across All Subjects
 
+SELECT s.student_id, s.student_name
+FROM students AS s JOIN marks AS m USING(student_id)
+GROUP BY s.student_id, s.student_name
+HAVING EVERY(m.mark_rate = (SELECT MAX(mark_rate) FROM marks WHERE subject_id = m.subject_id))
+ORDER BY s.student_id DESC;
+-----------------------------------
 
+-----------------------------------
+7 kyu
+Triangular Treasure
 
+SELECT n, CASE WHEN n > 0 THEN (n * (n+1)) / 2  ELSE 0 END AS res
+FROM triangular;
+-----------------------------------
 
 
 
