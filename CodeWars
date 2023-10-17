@@ -276,6 +276,26 @@ SELECT n, CASE WHEN n > 0 THEN (n * (n+1)) / 2  ELSE 0 END AS res
 FROM triangular;
 -----------------------------------
 
+-----------------------------------
+7 kyu
+Sales Analysis for the Previous Week
+
+SELECT c.category_name AS category_name, COUNT(sale_id) AS total_products_sold, SUM(s.amount) AS total_sales_amount
+FROM categories AS c JOIN products AS p USING(category_id)
+JOIN sales AS s USING(product_id)
+WHERE s.sale_date >= DATE_TRUNC('week', CURRENT_DATE - INTERVAL '1 week') AND s.sale_date < DATE_TRUNC('week', CURRENT_DATE)
+GROUP BY c.category_name
+ORDER BY total_products_sold DESC, total_sales_amount DESC, c.category_name ASC;
+-----------------------------------
+
+-----------------------------------
+7 kyu
+
+
+
+-----------------------------------
+
+
 
 
 
