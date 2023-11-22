@@ -288,7 +288,17 @@ GROUP BY c.category_name
 ORDER BY total_products_sold DESC, total_sales_amount DESC, c.category_name ASC;
 -----------------------------------
 
+-----------------------------------
+7 kyu
+Employees and managers: Part 1
 
+SELECT manager_id, 
+                ARRAY_AGG(name || ' ('|| id::text ||')' ORDER BY id) AS employee_names
+FROM employees
+WHERE manager_id IS NOT NULL 
+Group BY manager_id
+ORDER BY manager_id;
+-----------------------------------
 
 -----------------------------------
 6 kyu
@@ -322,6 +332,17 @@ WHERE id IN (
     WHERE price > 98
 );
 -----------------------------------
+
+-----------------------------------
+6 kyu
+Sneaky student #1
+
+';SELECT * 
+FROM students s 
+WHERE s.group='K-12' 
+ORDER BY name ASC--
+-----------------------------------
+
 
 
 -----------------------------------
