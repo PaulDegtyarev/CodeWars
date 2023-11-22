@@ -288,13 +288,59 @@ GROUP BY c.category_name
 ORDER BY total_products_sold DESC, total_sales_amount DESC, c.category_name ASC;
 -----------------------------------
 
------------------------------------
-7 kyu
-
 
 
 -----------------------------------
+6 kyu
+Generation Categorization
 
+SELECT 
+    id, 
+    name, 
+    birthdate, 
+    COALESCE(
+        (SELECT 'Generation Z' WHERE birthdate >= '1997-01-01' AND birthdate <= '2012-12-31'),
+        (SELECT 'Millennials' WHERE birthdate >= '1981-01-01' AND birthdate <= '1996-12-31'),
+        (SELECT 'Generation X' WHERE birthdate >= '1965-01-01' AND birthdate <= '1980-12-31'),
+        (SELECT 'Baby Boomers' WHERE birthdate >= '1946-01-01' AND birthdate <= '1964-12-31'),
+        (SELECT 'Silent Generation' WHERE birthdate >= '1928-01-01' AND birthdate <= '1945-12-31'),
+        (SELECT 'Greatest Generation' WHERE birthdate < '1928-01-01')
+    ) AS generation
+FROM users
+ORDER BY id ASC;
+-----------------------------------
+
+
+
+-----------------------------------
+5 kyu
+SQL Tuning: Function Calls
+
+CREATE TABLE precalculated_pct_increase (
+    department_id INT PRIMARY KEY,
+    pct_increase DECIMAL(5, 4)
+);
+
+INSERT INTO precalculated_pct_increase (department_id, pct_increase)
+SELECT department_id, pctIncrease(department_id)
+FROM departments;
+
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    d.department_name,
+    e.salary AS old_salary,
+    e.salary * (1 + p.pct_increase) AS new_salary
+    
+FROM employees e LEFT JOIN departments d 
+ON e.department_id = d.department_id
+
+LEFT JOIN precalculated_pct_increase p 
+ON e.department_id = p.department_id
+
+ORDER BY e.employee_id ASC;
+-----------------------------------
 
 
 
